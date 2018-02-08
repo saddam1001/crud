@@ -1,0 +1,7 @@
+ create or replace trigger user1_trig
+ before insert on user1
+ for each row
+ begin
+ :new.id:=user1_seq.nextval;
+ end;
+ /

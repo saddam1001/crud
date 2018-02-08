@@ -1,0 +1,1 @@
+create table user1(id number(5) constraint pk_user1 primary key,name varchar2(20),password varchar2(20),email varchar2(30),sex varchar2(6),country varchar2(15));

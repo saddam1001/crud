@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>User List</title>
+</head>
+<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ page import="com.saddam.dao.UserDao,com.saddam.bean.User,java.util.*"%>
+
+<%
+List<User> list=UserDao.getAllRecords();
+request.setAttribute("list",list);
+%>
+<h1>User List</h1>
+
+<table border="1" width="90%">
+<tr><th>Id</th><th>Name</th><th>Password</th><th>Email</th><th>Sex</th><th>Country</th><th>Edit</th><th>Delete</th></tr>
+<c:forEach items="${list}" var="u">
+<tr><td>${u.getId()}</td><td>${u.getName()}</td><td>${u.getPassword()}</td><td>${u.getEmail()}</td><td>${u.getSex()}</td><td>${u.getCountry()}</td><td><a href="editform.jsp?id=${u.getId()}">Edit</a></td><td><a href="delete.jsp?id=${u.getId()}">Delete</a></td></tr>
+</c:forEach>
+</table><br>
+<a href="adduserform.jsp">Add User</a>
+</body>
+</html>

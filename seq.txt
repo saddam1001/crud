@@ -1,0 +1,3 @@
+create sequence user1_seq
+start with 1001
+increment by 1;
